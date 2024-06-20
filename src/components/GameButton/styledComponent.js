@@ -9,7 +9,7 @@ export const ButtonImage = styled.button`
   border-width: 0px;
   cursor: pointer;
 `
-export const Image = styled.img`
+export const ImageChoice = styled.img`
   height: 200px;
   width: 200px;
   @media screen and (max-width: 767px) and (orientation: portrait) {
