@@ -1,4 +1,4 @@
-import {ListItem, ButtonImage, Image} from './styledComponent'
+import {ListItem, ButtonImage, ImageChoice} from './styledComponent'
 
 const GameButton = props => {
   const {id, imageUrl, onUserClickedButtonImage} = props
@@ -11,9 +11,10 @@ const GameButton = props => {
       <ButtonImage
         data-testid="rockButton"
         as="button"
+        type="button"
         onClick={onClickedButton}
       >
-        <Image as="img" src={imageUrl} />
+        <ImageChoice as="img" src={imageUrl} alt={id} />
       </ButtonImage>
     )
   }
@@ -22,9 +23,10 @@ const GameButton = props => {
       <ButtonImage
         data-testid="scissorsButton"
         as="button"
+        type="button"
         onClick={onClickedButton}
       >
-        <Image as="img" src={imageUrl} />
+        <ImageChoice as="img" src={imageUrl} alt={id} />
       </ButtonImage>
     )
   }
@@ -33,9 +35,10 @@ const GameButton = props => {
       <ButtonImage
         data-testid="paperButton"
         as="button"
+        type="button"
         onClick={onClickedButton}
       >
-        <Image as="img" src={imageUrl} />
+        <ImageChoice as="img" src={imageUrl} alt={id} />
       </ButtonImage>
     )
   }
