@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup'
 import {RiCloseLine} from 'react-icons/ri'
 
 import 'reactjs-popup/dist/index.css'
+
 import GameButton from '../GameButton/index'
 
 import {
@@ -114,6 +115,7 @@ class RockPaperScissorGame extends Component {
       randomGenerated: getImageByRandomChoice,
     })
     const {result} = this.state
+    console.log(result)
     if (result === 'YOU WON') {
       this.setState(prevState => ({
         score: prevState.score + 1,
@@ -164,8 +166,12 @@ class RockPaperScissorGame extends Component {
             <PlayerSelected as="img" src={machineImage} alt="opponent choice" />
           </PlayerDetails>
         </ResultsDetails>
-        <GameResult>{result}</GameResult>
-        <PlayAgainButton as="button" onClick={this.onClickPlayAgain}>
+        <GameResult as="p">{result}</GameResult>
+        <PlayAgainButton
+          as="button"
+          type="button"
+          onClick={this.onClickPlayAgain}
+        >
           PLAY AGAIN
         </PlayAgainButton>
       </GameResultContainer>
@@ -180,7 +186,7 @@ class RockPaperScissorGame extends Component {
       <MainContainer>
         <ScoreContainer>
           <GameNameContainer>
-            <GameName>
+            <GameName as="h1">
               Rock
               <br />
               Paper
