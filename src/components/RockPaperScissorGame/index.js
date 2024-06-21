@@ -56,18 +56,19 @@ class RockPaperScissorGame extends Component {
     played: false,
   }
 
-  onUserClickedButtonImage = async id => {
+  onUserClickedButtonImage = id => {
     // console.log(id)
-    const randomChoice = await choicesList[
-      Math.floor(Math.random() * (choicesList.length - 0) + 0)
-    ].id
+    const randomChoice =
+      choicesList[Math.floor(Math.random() * (choicesList.length - 0) + 0)].id
     // console.log(randomChoice)
-    const message = await this.getMessage(id, randomChoice)
+    /*
+    const message = this.getMessage(id, randomChoice)
     // console.log(message)
-    await this.setState({
+    this.setState({
       result: message,
     })
-    await this.generateGameResultDetails(id, randomChoice)
+    */
+    this.generateGameResultDetails(id, randomChoice)
     this.setState({
       played: true,
     })
@@ -95,7 +96,7 @@ class RockPaperScissorGame extends Component {
     return message
   }
 
-  generateGameResultDetails = async (id, randomChoice) => {
+  generateGameResultDetails = (id, randomChoice) => {
     const getImageById = choicesList.findIndex(game => {
       if (game.id === id) {
         return true
@@ -110,10 +111,11 @@ class RockPaperScissorGame extends Component {
     })
     // console.log(getImageById)
     // console.log(getImageByRandomChoice)
-    await this.setState({
+    this.setState({
       userClicked: getImageById,
       randomGenerated: getImageByRandomChoice,
     })
+    /*
     const {result} = this.state
     console.log(result)
     if (result === 'YOU WON') {
@@ -129,6 +131,55 @@ class RockPaperScissorGame extends Component {
         score: prevState.score,
       }))
     }
+    */
+    if (id === 'PAPER' && randomChoice === 'ROCK') {
+      // message = 'YOU WON'
+      this.setState(prevState => ({
+        score: prevState.score + 1,
+      }))
+      this.setState({result: 'YOU WON'})
+    } else if (id === 'SCISSORS' && randomChoice === 'ROCK') {
+      // message = 'YOU LOSE'
+      this.setState(prevState => ({
+        score: prevState.score - 1,
+      }))
+      this.setState({result: 'YOU LOSE'})
+    } else if (id === 'ROCK' && randomChoice === 'PAPER') {
+      // message = 'YOU LOSE'
+      this.setState(prevState => ({
+        score: prevState.score - 1,
+      }))
+      this.setState({result: 'YOU LOSE'})
+    } else if (id === 'SCISSORS' && randomChoice === 'PAPER') {
+      // message = 'YOU WON'
+      this.setState(prevState => ({
+        score: prevState.score + 1,
+      }))
+      this.setState({result: 'YOU WON'})
+    } else if (id === 'ROCK' && randomChoice === 'SCISSORS') {
+      // message = 'YOU WON'
+      this.setState(prevState => ({
+        score: prevState.score + 1,
+      }))
+      this.setState({result: 'YOU WON'})
+    } else if (id === 'PAPER' && randomChoice === 'SCISSORS') {
+      // message = 'YOU LOSE'
+      this.setState(prevState => ({
+        score: prevState.score - 1,
+      }))
+      this.setState({result: 'YOU LOSE'})
+    } else if (id === randomChoice) {
+      // message = 'IT IS DRAW'
+      this.setState(prevState => ({
+        score: prevState.score,
+      }))
+      this.setState({result: 'IT IS DRAW'})
+    }
+    /* 
+    else {
+      message = null
+    }
+    */
   }
 
   gameView = () => (
