@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
 export const ScoreContainer = styled.div`
   background-color: transparent;
   border: 2px solid #ffffff;
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
