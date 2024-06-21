@@ -5,8 +5,12 @@ export const MainContainer = styled.div`
   overflow: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
+  @media screen and (max-width: 767px) and (orientation: portrait) {
+    height: 100vh;
+  }
 `
 export const ScoreContainer = styled.div`
   background-color: transparent;
