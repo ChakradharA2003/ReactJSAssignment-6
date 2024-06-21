@@ -235,6 +235,7 @@ class RockPaperScissorGame extends Component {
     const view = played ? this.resultsView() : this.gameView()
     return (
       <MainContainer>
+       <div>
         <ScoreContainer>
           <GameNameContainer>
             <GameName as="h1">
@@ -251,6 +252,7 @@ class RockPaperScissorGame extends Component {
           </ScoreCard>
         </ScoreContainer>
         {view}
+    </div>
         <PopUpContainer>
           <Popup modal trigger={<RulesButton as="button">Rules</RulesButton>}>
             {close => (
